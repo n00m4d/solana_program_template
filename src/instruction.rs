@@ -17,7 +17,7 @@ pub enum TemplateInstruction {
 }
 
 /// Create `Example` instruction
-pub fn init_pool(
+pub fn init(
     program_id: &Pubkey,
     example_account: &Pubkey,
 ) -> Result<Instruction, ProgramError> {
