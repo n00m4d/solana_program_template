@@ -1,12 +1,12 @@
 #![cfg(feature = "test-bpf")]
 
 use solana_program::pubkey::Pubkey;
+use solana_program_template::*;
 use solana_program_test::*;
 use solana_sdk::{
     signature::{Keypair, Signer},
     transaction::Transaction,
 };
-use solana_program_template::*;
 
 pub fn program_test() -> ProgramTest {
     ProgramTest::new(
@@ -23,7 +23,7 @@ async fn test_call_example_instruction() {
     let new_acc = Keypair::new();
 
     let mut transaction = Transaction::new_with_payer(
-        &[instruction::init_pool(&id(), &new_acc.pubkey()).unwrap()],
+        &[instruction::init(&id(), &new_acc.pubkey()).unwrap()],
         Some(&payer.pubkey()),
     );
 

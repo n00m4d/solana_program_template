@@ -10,7 +10,7 @@ use solana_program::{
 /// Program state handler.
 pub struct Processor {}
 impl Processor {
-    /// Initialize the pool
+    /// Process example instruction
     pub fn process_example_instruction(
         _program_id: &Pubkey,
         accounts: &[AccountInfo],
@@ -27,8 +27,7 @@ impl Processor {
         accounts: &[AccountInfo],
         input: &[u8],
     ) -> ProgramResult {
-        let instruction = TemplateInstruction::try_from_slice(input)
-            .or(Err(ProgramTemplateError::ExampleError))?;
+        let instruction = TemplateInstruction::try_from_slice(input)?;
         match instruction {
             TemplateInstruction::ExampleInstruction => {
                 msg!("Instruction: ExampleInstruction");
